@@ -26,9 +26,18 @@ const home = await homeResponse.text();
 if (!home.includes("总想说点什么")) failures.push(`${base.href}: expected site title not found`);
 
 if (expectedSha) {
-  const metadataResponse = await fetch(new URL("/.well-known/dxh-build.json", base), { redirect: "follow" });
-  const metadata = await metadataResponse.json();
-  if (metadata.sourceSha !== expectedSha) failures.push(`live source SHA ${metadata.sourceSha}, expected ${expectedSha}`);
+  const metadataUrl = new URL("/dxh-build.json", base);
+  const metadataResponse = await fetch(metadataUrl, { redirect: "follow" });
+  if (!metadataResponse.ok) {
+    failures.push(`${metadataUrl.href}: HTTP ${metadataResponse.status}`);
+  } else {
+    try {
+      const metadata = await metadataResponse.json();
+      if (metadata.sourceSha !== expectedSha) failures.push(`live source SHA ${metadata.sourceSha}, expected ${expectedSha}`);
+    } catch (error) {
+      failures.push(`${metadataUrl.href}: invalid JSON (${error.message})`);
+    }
+  }
 }
 
 if (failures.length > 0) {

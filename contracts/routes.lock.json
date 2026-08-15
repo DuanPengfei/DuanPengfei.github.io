@@ -35,7 +35,7 @@
     "/tags/研究方法/",
     "/tags/证据链/",
     "/tags/调研/",
-    "/.well-known/dxh-build.json",
+    "/dxh-build.json",
     "/AGENTS.md",
     "/content.json"
   ]

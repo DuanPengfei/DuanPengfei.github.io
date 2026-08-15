@@ -45,7 +45,7 @@ for (const [relativePath, expectedHash] of Object.entries(assetContract.sha256))
 const posts = (await readdir(path.join(root, "source", "_posts"))).filter((name) => name.endsWith(".md"));
 if (posts.length < site.minimumPostCount) failures.push(`source post count ${posts.length} is below ${site.minimumPostCount}`);
 
-const buildMeta = JSON.parse(await readFile(path.join(publicDirectory, ".well-known", "dxh-build.json"), "utf8"));
+const buildMeta = JSON.parse(await readFile(path.join(publicDirectory, "dxh-build.json"), "utf8"));
 if (!/^[0-9a-f]{40}$/.test(buildMeta.sourceSha)) failures.push("build metadata has an invalid source SHA");
 if (process.env.GITHUB_SHA && buildMeta.sourceSha !== process.env.GITHUB_SHA) failures.push("build metadata does not match GITHUB_SHA");
 
