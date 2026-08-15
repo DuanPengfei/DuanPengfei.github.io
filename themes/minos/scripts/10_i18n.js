@@ -20,6 +20,18 @@ const {
     getClosestRfc5646WithCountryCode
 } = require('../lib/i18n')(hexo);
 
+function stableCompare(left, right) {
+    const normalizedLeft = String(left || '').normalize('NFC');
+    const normalizedRight = String(right || '').normalize('NFC');
+    if (normalizedLeft < normalizedRight) return -1;
+    if (normalizedLeft > normalizedRight) return 1;
+    return 0;
+}
+
+function stableSort(items, selector) {
+    return items.slice().sort((left, right) => stableCompare(selector(left), selector(right)));
+}
+
 /**
  * Modify previous and next post link
  */
@@ -129,12 +141,13 @@ hexo.extend.generator.register('category', injectLanguages(function(languages, l
                 posts: posts
             });
         }).filter(category => category !== null);
+        const stableCategories = stableSort(categories, category => category.path || category.name);
         if (categories.length === 0) {
             return null;
         }
 
         const routes = categoryGenerator.call(this, Object.assign({}, locals, {
-            categories: categories
+            categories: stableCategories
         }));
         if (isDefaultLanguage(language)) {
             return routes;
@@ -169,12 +182,13 @@ hexo.extend.generator.register('tag', injectLanguages(function(languages, locals
                 posts: posts
             });
         }).filter(category => category !== null);
+        const stableTags = stableSort(tags, tag => tag.path || tag.name);
         if (tags.length === 0) {
             return null;
         }
 
         const routes = tagGenerator.call(this, Object.assign({}, locals, {
-            tags: tags
+            tags: stableTags
         }));
         if (isDefaultLanguage(language)) {
             return routes;
@@ -209,11 +223,12 @@ hexo.extend.generator.register('categories', injectLanguages(function(languages,
                 path: isDefaultLanguage(language) ? category.path : pathJoin(language, category.path)
             });
         }).filter(category => category !== null);
+        const stableCategories = stableSort(categories, category => category.path || category.name);
         return {
             path: isDefaultLanguage(language) ? 'categories/' : pathJoin(language, 'categories/'),
             layout: ['categories'],
             data: Object.assign({}, locals, {
-                _categories: categories,
+                _categories: stableCategories,
                 __categories: true
             })
         };
@@ -236,11 +251,12 @@ hexo.extend.generator.register('tags', injectLanguages(function(languages, local
                 path: isDefaultLanguage(language) ? tag.path : pathJoin(language, tag.path)
             });
         }).filter(category => category !== null);
+        const stableTags = stableSort(tags, tag => tag.path || tag.name);
         return {
             path: isDefaultLanguage(language) ? 'tags/' : pathJoin(language, 'tags/'),
             layout: ['tags'],
             data: Object.assign({}, locals, {
-                _tags: tags,
+                _tags: stableTags,
                 __tags: true
             })
         };
@@ -274,12 +290,12 @@ hexo.extend.generator.register('insight', injectLanguages(function(languages, lo
     }
     return languages.map((language) => {
         const site = {
-            pages: locals.pages.filter(postFilter(language)).map(postMapper),
-            posts: locals.posts.filter(postFilter(language)).map(postMapper),
-            tags: locals.tags.filter(tag => tag.posts.some(postFilter(language)))
-                .map(tagMapper(language)),
-            categories: locals.categories.filter(category => category.posts.some(postFilter(language)))
-                .map(tagMapper(language)),
+            pages: stableSort(locals.pages.filter(postFilter(language)).map(postMapper), page => page.link),
+            posts: stableSort(locals.posts.filter(postFilter(language)).map(postMapper), post => post.link),
+            tags: stableSort(locals.tags.filter(tag => tag.posts.some(postFilter(language)))
+                .map(tagMapper(language)), tag => tag.link),
+            categories: stableSort(locals.categories.filter(category => category.posts.some(postFilter(language)))
+                .map(tagMapper(language)), category => category.link),
         };
         return {
             path: isDefaultLanguage(language) ? 'content.json' : 'content.' + language + '.json',
@@ -293,18 +309,18 @@ hexo.extend.generator.register('insight', injectLanguages(function(languages, lo
  */
 hexo.extend.filter.register('before_post_render', function(data) {
     data.lang = getPageLanguage(data);
-    data._categories = data.categories ? data.categories.map(category => {
+    data._categories = data.categories ? stableSort(data.categories.map(category => {
         return {
             name: category.name,
             path: !isDefaultLanguage(data.lang) ? pathJoin(data.lang, category.path) : category.path
         };
-    }) : [];
-    data._tags = data.tags ? data.tags.map(tag => {
+    }), category => category.path || category.name) : [];
+    data._tags = data.tags ? stableSort(data.tags.map(tag => {
         return {
             name: tag.name,
             path: !isDefaultLanguage(data.lang) ? pathJoin(data.lang, tag.path) : tag.path
         };
-    }) : [];
+    }), tag => tag.path || tag.name) : [];
     return data;
 });
 

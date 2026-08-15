@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "legacyPagesSha": "7a0a1976d02a9ce548178035bff5cd53fa534862",
+  "sourceSha": "f2f7981631d4aff7743685472ff0e120b6fdda0d",
+  "removedOutputs": [],
+  "addedOutputs": [
+    ".well-known/dxh-build.json"
+  ],
+  "reviewedModifiedOutputs": [
+    "2020/01/15/解决-sudo-执行命令时找不到命令问题/index.html",
+    "2020/11/09/Respberry-Pi-4-使用-Ubuntu-12-10-系统/index.html",
+    "2026/02/25/Cursor-Cloud-Agent-Computer-Use-体验/index.html",
+    "2026/08/03/一份可复核调研是怎样炼成的/index.html",
+    "2026/08/08/模型评测-从一个分数到一个决策/index.html",
+    "2026/08/11/从提示词到验证环-AI-原生-SDLC-地图/index.html",
+    "2026/08/14/证据优先的-AI-Agent-安全观察/index.html",
+    "about/index.html",
+    "archives/2020/01/index.html",
+    "archives/2020/11/index.html",
+    "archives/2020/index.html",
+    "bash/index.html",
+    "categories/index.html",
+    "content.json",
+    "index.html",
+    "tags/AI/index.html",
+    "tags/Computer-Use/index.html",
+    "tags/Cursor/index.html",
+    "tags/Linux/index.html",
+    "tags/Respberry-Pi/index.html",
+    "tags/Ubuntu/index.html",
+    "tags/index.html"
+  ],
+  "invariants": {
+    "routesRemoved": 0,
+    "criticalAssetsChanged": 0,
+    "cursorLiveBodyReconciled": true,
+    "cursorLegacyAnchorsPreserved": true,
+    "cleanBuildsByteIdentical": true
+  },
+  "notes": [
+    "Non-Cursor article bodies are semantically unchanged.",
+    "Expected presentation-only differences are deterministic tag ordering, current footer year, and renderer HTML escaping.",
+    "The Cursor source was reconciled with the live article before the first source-built deployment."
+  ]
+}
