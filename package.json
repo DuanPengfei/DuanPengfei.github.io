@@ -1,0 +1,35 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "npm@11.17.0",
+  "engines": {
+    "node": "26.5.1",
+    "npm": "11.17.0"
+  },
+  "scripts": {
+    "build": "hexo generate && node tools/copy-legacy-public.mjs && node tools/write-build-meta.mjs",
+    "check": "npm run validate:content && npm run clean && npm run build && npm run verify:output",
+    "clean": "hexo clean",
+    "preview": "hexo server",
+    "server": "hexo server",
+    "validate:content": "node tools/validate-content.mjs",
+    "verify:live": "node tools/verify-live.mjs",
+    "verify:output": "node tools/verify-output.mjs"
+  },
+  "hexo": {
+    "version": "4.2.1"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12",
+    "hexo": "4.2.1",
+    "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-category": "^1.0.0",
+    "hexo-generator-index": "^1.0.0",
+    "hexo-generator-tag": "^1.0.0",
+    "hexo-renderer-ejs": "^1.0.0",
+    "hexo-renderer-marked": "^2.0.0",
+    "hexo-renderer-stylus": "^1.1.0",
+    "hexo-server": "^1.0.0"
+  }
+}

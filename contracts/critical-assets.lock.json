@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "sha256": {
+    "AGENTS.md": "f01e8580dde6f16d6e058cff1717b7a277162c6f1ed072c8347cfa8ade8f90e4",
+    "CNAME": "edba309995f6c3affd64ab15e451a732f53c1ae96d76fd22b5d8e8662c5bebba",
+    "css/insight.css": "ec3ecf555f3dd53d04158ab9bfa87c150bf5ec6f50fb909215c618cf8943f8cc",
+    "css/style.css": "427d5656d3bdb050f87fc12e9d11d27943e6cfee43ca0149fcba4222575494ed",
+    "favicon.ico": "cf1f276ac940652f76f6a5f3da857d8dc0494b9df1034c703cda1ad0168a8c7e",
+    "images/check.svg": "a3779255b0f24ae3e5ec8c31fa5a9619015d5c9030c8be8d15421388482108bd",
+    "images/exclamation.svg": "702825093e3a24b830493041f371d6044dbaf02461e7fcbb7f222c70b2df3de1",
+    "images/info.svg": "1ae3b20befe79df0a85f55b7ec3d295749f86d2f9e82dcb69184f489f403116e",
+    "images/logo.png": "f83e81979a3b233826745d07c3fdb1e633e4db0a9d22e94595db3d6aa9b69a9c",
+    "images/question.svg": "b779a6da846bedd8fefba494307fb8fd0b5ebc49a83f221d9b578d7c3ccbaa3d",
+    "images/quote-left.svg": "2ddbdbe2445615ec17b3ef921073be5b1dfcf6279735b244cd4522c0547c5d61",
+    "js/insight.js": "25ae3195ebeb72e2914105844da235cc3fbca171270bde1a7067b6dc08ef9d33",
+    "js/script.js": "20191c96021d7d9ce33d4ee131436874b8667f891e5d91c913a99e4fb972b7f3"
+  }
+}
