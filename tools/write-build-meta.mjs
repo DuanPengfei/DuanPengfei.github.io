@@ -4,7 +4,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const sourceSha = process.env.GITHUB_SHA || execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
-const outputDirectory = path.join(root, "public", ".well-known");
+const outputDirectory = path.join(root, "public");
 
 if (!/^[0-9a-f]{40}$/.test(sourceSha)) {
   throw new Error(`Invalid source SHA: ${sourceSha}`);

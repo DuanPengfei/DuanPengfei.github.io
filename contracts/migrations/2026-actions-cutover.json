@@ -4,7 +4,7 @@
   "sourceSha": "f2f7981631d4aff7743685472ff0e120b6fdda0d",
   "removedOutputs": [],
   "addedOutputs": [
-    ".well-known/dxh-build.json"
+    "dxh-build.json"
   ],
   "reviewedModifiedOutputs": [
     "2020/01/15/解决-sudo-执行命令时找不到命令问题/index.html",
@@ -38,6 +38,7 @@
     "cleanBuildsByteIdentical": true
   },
   "notes": [
+    "Build metadata is published at the artifact root because upload-pages-artifact omits hidden directories.",
     "Non-Cursor article bodies are semantically unchanged.",
     "Expected presentation-only differences are deterministic tag ordering, current footer year, and renderer HTML escaping.",
     "The Cursor source was reconciled with the live article before the first source-built deployment."
