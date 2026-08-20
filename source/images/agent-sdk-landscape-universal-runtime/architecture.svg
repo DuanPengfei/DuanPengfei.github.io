@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 920" role="img" aria-labelledby="title desc">
+  <title id="title">Universal Agent Runtime SDK 建议架构</title>
+  <desc id="desc">业务应用通过语言 SDK 调用统一运行契约。统一运行契约连接策略、状态、观测，以及原生框架、子进程、ACP、远程 Agent、工具能力和用户界面适配器。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f9ff"/>
+      <stop offset="1" stop-color="#eef7f6"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3157d5"/>
+      <stop offset="1" stop-color="#187c83"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#15304a" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#597184"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="920" rx="28" fill="url(#bg)"/>
+  <text x="700" y="55" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#18334a">Universal Agent Runtime SDK</text>
+  <text x="700" y="88" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="17" fill="#567084">统一应用如何启动、观察、控制、恢复和治理 Agent</text>
+
+  <g filter="url(#shadow)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="430" y="120" width="540" height="78" rx="16" fill="#ffffff" stroke="#9db2c1" stroke-width="2"/>
+    <text x="700" y="154" text-anchor="middle" font-size="22" font-weight="650" fill="#1e4059">业务应用 · IDE · 自动化 · Web UI</text>
+    <text x="700" y="180" text-anchor="middle" font-size="15" fill="#647d8e">调用方只依赖稳定的语言原生契约</text>
+
+    <rect x="430" y="238" width="540" height="86" rx="18" fill="#243a52"/>
+    <text x="700" y="273" text-anchor="middle" font-size="23" font-weight="700" fill="#ffffff">Language-native SDK</text>
+    <text x="700" y="301" text-anchor="middle" font-size="16" fill="#d9e8f2">TypeScript · Python · Go clients</text>
+
+    <rect x="245" y="372" width="910" height="160" rx="24" fill="url(#core)"/>
+    <text x="700" y="414" text-anchor="middle" font-size="25" font-weight="700" fill="#ffffff">Canonical Runtime Contract</text>
+    <text x="700" y="448" text-anchor="middle" font-size="18" fill="#e7fbff">Run · Session/Thread · Turn · Event · Approval · Artifact · Capability</text>
+
+    <rect x="285" y="474" width="250" height="38" rx="10" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.45"/>
+    <text x="410" y="499" text-anchor="middle" font-size="15" fill="#ffffff">Policy · Sandbox · Secrets</text>
+    <rect x="575" y="474" width="250" height="38" rx="10" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.45"/>
+    <text x="700" y="499" text-anchor="middle" font-size="15" fill="#ffffff">Event Ledger · Checkpoint</text>
+    <rect x="865" y="474" width="250" height="38" rx="10" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.45"/>
+    <text x="990" y="499" text-anchor="middle" font-size="15" fill="#ffffff">Tracing · Metrics · Eval</text>
+  </g>
+
+  <g stroke="#597184" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M700 198 L700 232"/>
+    <path d="M700 324 L700 365"/>
+    <path d="M420 532 L275 610"/>
+    <path d="M585 532 L535 610"/>
+    <path d="M700 532 L700 610"/>
+    <path d="M815 532 L865 610"/>
+    <path d="M980 532 L1125 610"/>
+  </g>
+
+  <g filter="url(#shadow)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="70" y="620" width="250" height="110" rx="16" fill="#ffffff" stroke="#4f76d8" stroke-width="2"/>
+    <text x="195" y="656" text-anchor="middle" font-size="18" font-weight="700" fill="#284fbb">Native Framework</text>
+    <text x="195" y="684" text-anchor="middle" font-size="14" fill="#526b7d">LangGraph · Eino</text>
+    <text x="195" y="706" text-anchor="middle" font-size="14" fill="#526b7d">OpenAI Agents · ADK</text>
+
+    <rect x="335" y="620" width="250" height="110" rx="16" fill="#ffffff" stroke="#7864cf" stroke-width="2"/>
+    <text x="460" y="656" text-anchor="middle" font-size="18" font-weight="700" fill="#5b46b6">Subprocess Harness</text>
+    <text x="460" y="684" text-anchor="middle" font-size="14" fill="#526b7d">Claude · Codex</text>
+    <text x="460" y="706" text-anchor="middle" font-size="14" fill="#526b7d">Copilot · Goose</text>
+
+    <rect x="600" y="620" width="200" height="110" rx="16" fill="#ffffff" stroke="#21939a" stroke-width="2"/>
+    <text x="700" y="656" text-anchor="middle" font-size="18" font-weight="700" fill="#14737a">ACP Adapter</text>
+    <text x="700" y="685" text-anchor="middle" font-size="14" fill="#526b7d">本地 Agent 控制面</text>
+    <text x="700" y="707" text-anchor="middle" font-size="14" fill="#526b7d">session · cancel · permission</text>
+
+    <rect x="815" y="620" width="250" height="110" rx="16" fill="#ffffff" stroke="#ca7b32" stroke-width="2"/>
+    <text x="940" y="656" text-anchor="middle" font-size="18" font-weight="700" fill="#aa5f1f">Remote Runtime</text>
+    <text x="940" y="684" text-anchor="middle" font-size="14" fill="#526b7d">A2A · Vendor API</text>
+    <text x="940" y="706" text-anchor="middle" font-size="14" fill="#526b7d">Managed Agent Platform</text>
+
+    <rect x="1080" y="620" width="250" height="110" rx="16" fill="#ffffff" stroke="#3f9c67" stroke-width="2"/>
+    <text x="1205" y="656" text-anchor="middle" font-size="18" font-weight="700" fill="#267a4c">Capability Adapter</text>
+    <text x="1205" y="684" text-anchor="middle" font-size="14" fill="#526b7d">MCP · Native Tools</text>
+    <text x="1205" y="706" text-anchor="middle" font-size="14" fill="#526b7d">Gateway · Secret Broker</text>
+
+    <rect x="430" y="782" width="540" height="78" rx="16" fill="#ffffff" stroke="#9db2c1" stroke-width="2"/>
+    <text x="700" y="816" text-anchor="middle" font-size="19" font-weight="700" fill="#1e4059">UI Event Projection</text>
+    <text x="700" y="842" text-anchor="middle" font-size="15" fill="#647d8e">AG-UI · Custom Event Stream · Audit View</text>
+  </g>
+
+  <path d="M700 730 L700 776" stroke="#597184" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+</svg>
