@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="370" viewBox="0 0 1120 370" role="img" aria-labelledby="title desc">
+<title id="title">RSI 的反馈闭环</title><desc id="desc">当前系统执行任务或实验，获得轨迹与外部反馈，产生并评估候选修改，保留后继版本。后继版本既执行后续任务，也参与产生下一轮修改。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#60718c"/></marker><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2365c4"/></marker></defs>
+<rect width="1120" height="370" rx="20" fill="#f5f8fc"/>
+<g font-family="system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif" text-anchor="middle">
+<text x="560" y="42" font-size="25" font-weight="700" fill="#18334f">RSI 的反馈闭环</text>
+<g fill="none" stroke="#60718c" stroke-width="2.5" marker-end="url(#arrow)"><path d="M220 170H250"/><path d="M430 170H460"/><path d="M640 170H670"/><path d="M850 170H880"/><path d="M970 125V87H340V121"/></g>
+<rect x="510" y="71" width="240" height="28" fill="#f5f8fc"/><text x="630" y="92" font-size="18" fill="#506179">执行后续任务</text>
+<g fill="#fff" stroke="#cbd7e5" stroke-width="1.5"><rect x="40" y="125" width="180" height="90" rx="12"/><rect x="250" y="125" width="180" height="90" rx="12"/><rect x="460" y="125" width="180" height="90" rx="12"/><rect x="670" y="125" width="180" height="90" rx="12"/></g>
+<rect x="880" y="125" width="180" height="90" rx="12" fill="#e6efff" stroke="#2365c4" stroke-width="2"/>
+<g font-size="21" fill="#18334f"><text x="130" y="179">当前系统</text><text x="340" y="163">执行任务</text><text x="340" y="191">或实验</text><text x="550" y="163">执行轨迹</text><text x="550" y="191">与外部反馈</text><text x="760" y="163">产生并评估</text><text x="760" y="191">候选修改</text><text x="970" y="163">保留</text><text x="970" y="191">后继版本</text></g>
+<path d="M970 215V275H760V220" stroke="#2365c4" stroke-width="3" fill="none" marker-end="url(#blue)"/>
+<text x="560" y="320" font-size="21" font-weight="600" fill="#2365c4">递归反馈：后继版本参与产生下一轮改进</text>
+<text x="560" y="350" font-size="16" fill="#506179">是否形成反馈、是否有效、是否全自主，需要分别验证。</text>
+</g></svg>
