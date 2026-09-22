@@ -1,6 +1,7 @@
 ---
 title: 解决 sudo 执行命令时找不到命令问题
 date: 2020-01-15 17:04:24
+indexing: false
 tags:
     - Linux
 ---

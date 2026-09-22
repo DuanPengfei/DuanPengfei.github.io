@@ -1,5 +1,8 @@
 <section class="section">
     <div class="container">
+    <% if (!page.posts.length) { %>
+        <p class="has-text-grey">暂无公开展示的文章。</p>
+    <% } %>
     <% page.posts.each(function(post){ %>
         <%- partial('common/article', { post, index: true }) %>
     <% }); %>

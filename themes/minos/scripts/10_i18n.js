@@ -33,33 +33,55 @@ function stableSort(items, selector) {
 }
 
 /**
- * Modify previous and next post link
+ * Paginate listed posts, retaining old listing URLs as empty pages when needed.
+ * Article generation always receives the full collection, so permalinks survive.
+ */
+function generateListingRoutes(generator, locals, collection = 'posts') {
+    const listed = Object.assign({}, locals, {
+        posts: locals.posts.filter(post => post.indexing !== false)
+    });
+    if (collection !== 'posts') {
+        listed[collection] = locals[collection].map(group => {
+            const posts = group.posts.filter(post => post.indexing !== false);
+            return Object.assign({}, group, { posts, length: posts.length });
+        }).filter(group => group.posts.length > 0);
+    }
+    const routes = generator.call(this, listed) || [];
+    const paths = new Set(routes.map(route => route.path));
+    const emptyPosts = locals.posts.filter(() => false);
+    const legacyRoutes = (generator.call(this, locals) || [])
+        .filter(route => !paths.has(route.path))
+        .map(route => Object.assign({}, route, {
+            data: Object.assign({}, route.data, {
+                posts: emptyPosts,
+                total: 1,
+                current: 1,
+                prev: 0,
+                prev_link: '',
+                next: 0,
+                next_link: ''
+            })
+        }));
+    return routes.concat(legacyRoutes);
+}
+
+/**
+ * Keep every article route; previous/next links only target listed posts.
  */
 hexo.extend.generator.register('post', function(locals) {
-    return postGenerator(locals).map(route => {
-        let post = route.data;
-        if (post.next) {
-            let next = post.next;
-            while (next && post.lang !== next.lang) {
-                next = next.next;
-            }
-            post.next = next;
-            if (next) {
-                next.prev = post;
-            }
-        }
-        if (post.prev) {
-            let prev = post.prev;
-            while (prev && post.lang !== prev.lang) {
-                prev = prev.prev;
-            }
-            post.prev = prev;
-            if (prev) {
-                prev.next = post;
-            }
-        }
-        return route;
-    });
+    const routes = postGenerator(locals);
+    const posts = locals.posts.sort('-date').toArray();
+    function linkNeighbors(ordered, field) {
+        const neighbors = new Map();
+        ordered.forEach(post => {
+            const language = getPageLanguage(post) || getDisplayLanguages()[0];
+            post[field] = neighbors.get(language) || null;
+            if (post.indexing !== false) neighbors.set(language, post);
+        });
+    }
+    linkNeighbors(posts, 'prev');
+    linkNeighbors(posts.slice().reverse(), 'next');
+    return routes;
 });
 
 /**
@@ -70,11 +92,11 @@ hexo.extend.generator.register('post', function(locals) {
 hexo.extend.generator.register('index', injectLanguages(function(languages, locals) {
     return _.flatten(languages.map((language) => {
         // Filter posts by language considering. Posts without a language is considered of the default language.
-        const posts = locals.posts.filter(postFilter(language));
+        const posts = locals.posts.filter(postFilter(language, true));
         if (posts.length === 0) {
             return null;
         }
-        const routes = indexGenerator.call(this, Object.assign({}, locals, {
+        const routes = generateListingRoutes.call(this, indexGenerator, Object.assign({}, locals, {
             posts: posts
         }));
         if (isDefaultLanguage(language)) {
@@ -101,11 +123,11 @@ hexo.extend.generator.register('index', injectLanguages(function(languages, loca
 hexo.extend.generator.register('archive', injectLanguages(function(languages, locals) {
     return _.flatten(languages.map((language) => {
         // Filter posts by language considering. Posts without a language is considered of the default language.
-        const posts = locals.posts.filter(postFilter(language));
+        const posts = locals.posts.filter(postFilter(language, true));
         if (posts.length === 0) {
             return null;
         }
-        const routes = archiveGenerator.call(this, Object.assign({}, locals, {
+        const routes = generateListingRoutes.call(this, archiveGenerator, Object.assign({}, locals, {
             posts: posts
         }));
         if (isDefaultLanguage(language)) {
@@ -133,7 +155,7 @@ hexo.extend.generator.register('category', injectLanguages(function(languages, l
     return _.flatten(languages.map((language) => {
         const categories = locals.categories.map(category => {
             // Filter posts by language considering. Posts without a language is considered of the default language.
-            const posts = category.posts.filter(postFilter(language));
+            const posts = category.posts.filter(postFilter(language, true));
             if (posts.length === 0) {
                 return null;
             }
@@ -146,9 +168,9 @@ hexo.extend.generator.register('category', injectLanguages(function(languages, l
             return null;
         }
 
-        const routes = categoryGenerator.call(this, Object.assign({}, locals, {
+        const routes = generateListingRoutes.call(this, categoryGenerator, Object.assign({}, locals, {
             categories: stableCategories
-        }));
+        }), 'categories');
         if (isDefaultLanguage(language)) {
             return routes;
         }
@@ -174,7 +196,7 @@ hexo.extend.generator.register('tag', injectLanguages(function(languages, locals
     return _.flatten(languages.map((language) => {
         const tags = locals.tags.map(tag => {
             // Filter posts by language considering. Posts without a language is considered of the default language.
-            const posts = tag.posts.filter(postFilter(language));
+            const posts = tag.posts.filter(postFilter(language, true));
             if (posts.length === 0) {
                 return null;
             }
@@ -187,9 +209,9 @@ hexo.extend.generator.register('tag', injectLanguages(function(languages, locals
             return null;
         }
 
-        const routes = tagGenerator.call(this, Object.assign({}, locals, {
+        const routes = generateListingRoutes.call(this, tagGenerator, Object.assign({}, locals, {
             tags: stableTags
-        }));
+        }), 'tags');
         if (isDefaultLanguage(language)) {
             return routes;
         }
