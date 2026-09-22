@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1240" viewBox="0 0 760 1240" role="img" aria-labelledby="computer-use-self-evolution-title computer-use-self-evolution-desc" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <title id="computer-use-self-evolution-title">Computer Use 的经验自迭代与可选的递归自改</title>
+  <desc id="computer-use-self-evolution-desc">以导出报表为例，首次通过截图、模型判断和操作探索成功路径，保存适用状态、关键检查与成功判据。后续检索并验证路径，状态偏离或路径失效时回到观察与探索。可选扩展是让提出、验证和选择策略的优化方法从 I0 改为 I1，再由 I1 参与产生和评测 I2。经验积累不自动等于递归自改，成本收益仍需实测。</desc>
+  <defs>
+    <marker id="computer-use-self-evolution-base" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#8696ac" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="computer-use-self-evolution-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#087f72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="computer-use-self-evolution-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#7450c7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="1238" rx="22" fill="#f7f9fc" stroke="#dce4ee" stroke-width="1" />
+  <rect x="32" y="26" width="192" height="26" rx="13" fill="#e3f3ee" stroke="#e3f3ee" stroke-width="1" />
+  <text x="128" y="44" font-size="12" fill="#087f72" font-weight="700" text-anchor="middle">02 · SELF-EVOLUTION</text>
+  <text x="238" y="44" font-size="14" fill="#526178" font-weight="400" text-anchor="start">Computer Use 积累操作经验 · 机制示意</text>
+  <text x="32" y="88" font-size="26" fill="#17253d" font-weight="700" text-anchor="start">学过的操作路径，后续任务直接复用</text>
+  <text x="32" y="120" font-size="15" fill="#526178" font-weight="400" text-anchor="start">示意任务：导出软件中的报表</text>
+  <rect x="32" y="140" width="153" height="46" rx="10" fill="#ffffff" stroke="#dce4ee" stroke-width="1" />
+  <text x="108.5" y="169" font-size="16" fill="#17253d" font-weight="600" text-anchor="middle">报表列表</text>
+  <path d="M 191 163 H 207" fill="none" stroke="#8696ac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-base)" />
+  <rect x="213" y="140" width="153" height="46" rx="10" fill="#ffffff" stroke="#dce4ee" stroke-width="1" />
+  <text x="289.5" y="169" font-size="16" fill="#17253d" font-weight="600" text-anchor="middle">筛选条件</text>
+  <path d="M 372 163 H 388" fill="none" stroke="#8696ac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-base)" />
+  <rect x="394" y="140" width="153" height="46" rx="10" fill="#ffffff" stroke="#dce4ee" stroke-width="1" />
+  <text x="470.5" y="169" font-size="16" fill="#17253d" font-weight="600" text-anchor="middle">导出 CSV</text>
+  <path d="M 553 163 H 569" fill="none" stroke="#8696ac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-base)" />
+  <rect x="575" y="140" width="153" height="46" rx="10" fill="#ffffff" stroke="#dce4ee" stroke-width="1" />
+  <text x="651.5" y="169" font-size="16" fill="#17253d" font-weight="600" text-anchor="middle">确认文件</text>
+  <text x="100" y="236" font-size="17" fill="#17253d" font-weight="600" text-anchor="start">经验积累闭环</text>
+  <rect x="100" y="259" width="628" height="118" rx="15" fill="#ffffff" stroke="#dce4ee" stroke-width="1" />
+  <rect x="118" y="277" width="36" height="27" rx="8" fill="#ddefe7" stroke="none" stroke-width="1" />
+  <text x="136" y="296" font-size="14" fill="#087f72" font-weight="700" text-anchor="middle">01</text>
+  <text x="166" y="298" font-size="19" fill="#17253d" font-weight="650" text-anchor="start">首次任务：探索操作路径</text>
+  <text x="118" y="334" font-size="16" fill="#526178" font-weight="400" text-anchor="start">截图 → 模型判断 → 操作；</text>
+  <text x="118" y="360" font-size="16" fill="#526178" font-weight="400" text-anchor="start">反复观察并检查结果，直到导出成功。</text>
+  <rect x="100" y="416" width="628" height="130" rx="15" fill="#edf8f3" stroke="#c9e4d9" stroke-width="1" />
+  <rect x="118" y="434" width="36" height="27" rx="8" fill="#ddefe7" stroke="none" stroke-width="1" />
+  <text x="136" y="453" font-size="14" fill="#087f72" font-weight="700" text-anchor="middle">02</text>
+  <text x="166" y="455" font-size="19" fill="#17253d" font-weight="650" text-anchor="start">验证后沉淀：保存经验资产</text>
+  <text x="118" y="491" font-size="16" fill="#526178" font-weight="400" text-anchor="start">记录操作步骤、适用状态与前置条件，</text>
+  <text x="118" y="517" font-size="16" fill="#526178" font-weight="400" text-anchor="start">保留关键检查点与成功判据。</text>
+  <rect x="100" y="585" width="628" height="130" rx="15" fill="#edf8f3" stroke="#c9e4d9" stroke-width="1" />
+  <rect x="118" y="603" width="36" height="27" rx="8" fill="#ddefe7" stroke="none" stroke-width="1" />
+  <text x="136" y="622" font-size="14" fill="#087f72" font-weight="700" text-anchor="middle">03</text>
+  <text x="166" y="624" font-size="19" fill="#17253d" font-weight="650" text-anchor="start">后续任务：检索并复用路径</text>
+  <text x="118" y="660" font-size="16" fill="#526178" font-weight="400" text-anchor="start">核对起始状态和关键状态，再按路径操作；</text>
+  <text x="118" y="686" font-size="16" fill="#526178" font-weight="400" text-anchor="start">确认导出文件，不能仅凭“操作已执行”判断成功。</text>
+  <path d="M 414 382 V 409" fill="none" stroke="#087f72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-green)" />
+  <path d="M 414 551 V 578" fill="none" stroke="#087f72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-green)" />
+  <path d="M 94 650 H 70 V 318 H 94" fill="none" stroke="#087f72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-green)" />
+  <text x="44" y="450" font-size="15" fill="#087f72" font-weight="600" text-anchor="middle">失</text>
+  <text x="44" y="473" font-size="15" fill="#087f72" font-weight="600" text-anchor="middle">效</text>
+  <text x="44" y="496" font-size="15" fill="#087f72" font-weight="600" text-anchor="middle">回</text>
+  <text x="44" y="519" font-size="15" fill="#087f72" font-weight="600" text-anchor="middle">退</text>
+  <text x="100" y="752" font-size="15" fill="#087f72" font-weight="600" text-anchor="start">状态偏离／路径失效 → 重新观察与探索 → 更新路径</text>
+  <line x1="32" y1="784" x2="728" y2="784" stroke="#dce4ee" stroke-width="1" />
+  <rect x="32" y="810" width="696" height="302" rx="17" fill="#f2effb" stroke="#ddd5f2" stroke-width="1" />
+  <rect x="48" y="828" width="92" height="25" rx="12" fill="#e5def6" stroke="none" stroke-width="1" />
+  <text x="94" y="845" font-size="13" fill="#7450c7" font-weight="700" text-anchor="middle">可选扩展</text>
+  <text x="153" y="847" font-size="18" fill="#17253d" font-weight="650" text-anchor="start">进一步形成 RSI</text>
+  <text x="48" y="879" font-size="15" fill="#526178" font-weight="400" text-anchor="start">让“如何提出、验证、选择策略”的方法，也成为改进对象。</text>
+  <rect x="48" y="902" width="196" height="148" rx="12" fill="#ffffff" stroke="#ddd5f2" stroke-width="1" />
+  <text x="63" y="927" font-size="14" fill="#7450c7" font-weight="600" text-anchor="start">I₀ · 优化方法</text>
+  <text x="63" y="957" font-size="17" fill="#17253d" font-weight="600" text-anchor="start">提出与筛选策略</text>
+  <text x="63" y="987" font-size="14" fill="#526178" font-weight="400" text-anchor="start">分析可复用的探索步骤</text>
+  <text x="63" y="1010" font-size="14" fill="#526178" font-weight="400" text-anchor="start">评测路径与截图策略</text>
+  <rect x="282" y="902" width="196" height="148" rx="12" fill="#ffffff" stroke="#ddd5f2" stroke-width="1" />
+  <text x="297" y="927" font-size="14" fill="#7450c7" font-weight="600" text-anchor="start">I₁ · 方法本身升级</text>
+  <text x="297" y="957" font-size="17" fill="#17253d" font-weight="600" text-anchor="start">评测后采用新版</text>
+  <text x="297" y="987" font-size="14" fill="#526178" font-weight="400" text-anchor="start">例：加入失败归因</text>
+  <text x="297" y="1010" font-size="14" fill="#526178" font-weight="400" text-anchor="start">与对照验证</text>
+  <rect x="516" y="902" width="196" height="148" rx="12" fill="#ffffff" stroke="#ddd5f2" stroke-width="1" />
+  <text x="531" y="927" font-size="14" fill="#7450c7" font-weight="600" text-anchor="start">I₂ · 继续自改</text>
+  <text x="531" y="957" font-size="17" fill="#17253d" font-weight="600" text-anchor="start">新版方法参与自改</text>
+  <text x="531" y="987" font-size="14" fill="#526178" font-weight="400" text-anchor="start">用 I₁ 分析优化过程失败</text>
+  <text x="531" y="1010" font-size="14" fill="#526178" font-weight="400" text-anchor="start">再提出、评估方法 I₂…</text>
+  <path d="M 250 973 H 274" fill="none" stroke="#7450c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-purple)" stroke-dasharray="5 6" />
+  <path d="M 484 973 H 508" fill="none" stroke="#7450c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#computer-use-self-evolution-purple)" />
+  <text x="48" y="1079" font-size="15" fill="#526178" font-weight="400" text-anchor="start">多记住几条路径：经验积累。</text>
+  <text x="48" y="1101" font-size="15" fill="#7450c7" font-weight="600" text-anchor="start">新版优化方法继续参与改进自身：递归反馈。</text>
+  <circle cx="39" cy="1150" r="4" fill="#087f72" />
+  <text x="53" y="1155" font-size="16" fill="#17253d" font-weight="600" text-anchor="start">目标：成功率不下降，减少重复截图、模型调用、耗时与费用。</text>
+  <text x="32" y="1186" font-size="15" fill="#526178" font-weight="400" text-anchor="start">路径复用仍需关键状态与结果核验。</text>
+  <text x="32" y="1210" font-size="15" fill="#526178" font-weight="400" text-anchor="start">实际成本收益、方法改进是否有效，都需要独立评测。</text>
+</svg>
