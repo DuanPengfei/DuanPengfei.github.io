@@ -1,6 +1,7 @@
 ---
 title: Respberry Pi 4 使用 Ubuntu 20.10 系统
 date: 2020-11-09 15:18:40
+indexing: false
 tags:
     - Respberry Pi
     - Linux

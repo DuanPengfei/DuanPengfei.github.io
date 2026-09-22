@@ -1,6 +1,7 @@
 ---
 title: 从提示词到验证环：AI 原生 SDLC 地图
 date: 2026-08-11 10:00:00
+indexing: false
 tags:
   - AI 原生 SDLC
   - 工程

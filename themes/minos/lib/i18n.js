@@ -81,10 +81,10 @@ module.exports = function (hexo) {
         return !language || getDisplayLanguages().indexOf(language) === 0;
     }
 
-    function postFilter(language) {
+    function postFilter(language, includeUnlisted = false) {
         return function (post) {
             let lang = getPageLanguage(post);
-            return (lang === language || (isDefaultLanguage(language) && !lang)) && (post.indexing !== false);
+            return (lang === language || (isDefaultLanguage(language) && !lang)) && (includeUnlisted || post.indexing !== false);
         }
     }
 
